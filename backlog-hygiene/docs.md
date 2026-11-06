@@ -12,7 +12,6 @@ Backlog Hygiene sweeps your Jira backlog and suggests:
 
 You review each suggestion and approve or reject it. **Nothing changes in Jira until you approve.**
 
-> Draft for the public docs page, 2026-11-05. Matches app version 3.0.0. Labels in **bold** are exactly what the app shows.
 
 ---
 
