@@ -13,7 +13,7 @@ Backlog Hygiene for Jira is built by Coregent Digital Studio (Canberra, Australi
 - **AI inside Atlassian.** The AI model is used through Atlassian's Forge LLMs, inside Atlassian's platform. It doesn't use your Rovo credits.
 - **We can't see your data.** Coregent Digital Studio does not receive or access your Jira content. App data is stored in Atlassian's Forge hosted storage, which Atlassian encrypts at rest and which supports data residency.
 - **Minimum permissions.** The app asks for three scopes: read work items, write work items, and app storage. It doesn't read user profiles or attachments.
-- **Admins stay in control.** Only Jira administrators can start sweeps, change settings, or approve or reject suggestions. This is checked for the signed-in user on every request. Nothing in Jira changes until an administrator approves a suggestion.
+- **Admins stay in control.** Only Jira administrators can start sweeps, change settings, or approve or reject suggestions. This is checked for the signed-in user on every request. Nothing in Jira changes until an administrator approves a suggestion. Other users can read suggestions only for projects they can browse in Jira.
 - **Retention.** Sweep data is kept for the 4 most recent sweeps. When you uninstall, Atlassian deletes the app's storage after 28 days. See the [privacy policy](privacy).
 
 ## How we develop it
