@@ -7,7 +7,7 @@ permalink: /backlog-hygiene/privacy
 
 **Effective date:** 6 November 2026  
 **Vendor:** Coregent Digital Studio, Unit 23, 5 Hely Street, Griffith ACT 2603, Australia ("we", "us")  
-**Contact:** coregent.devspace+privacy@gmail.com
+**Contact:** privacy@coregent.com.au
 
 ## 1. What this policy covers
 
@@ -94,7 +94,7 @@ Actions that change Jira, run sweeps, or change settings require Jira administra
 ## 11. Your choices
 
 - A Jira administrator can choose which projects the App sweeps, stop weekly sweeps, reject any suggestion, and uninstall the App at any time.
-- To ask about this policy or request deletion of App data before uninstalling, contact coregent.devspace+privacy@gmail.com.
+- To ask about this policy or request deletion of App data before uninstalling, contact privacy@coregent.com.au.
 
 ## 12. Australian privacy law
 
@@ -108,4 +108,4 @@ We will update this policy when the App's data handling changes, and post the ne
 
 Coregent Digital Studio  
 Unit 23, 5 Hely Street, Griffith ACT 2603, Australia  
-coregent.devspace+privacy@gmail.com
+privacy@coregent.com.au

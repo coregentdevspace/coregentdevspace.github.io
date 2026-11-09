@@ -132,4 +132,4 @@ Not with one click. Reopen the item in Jira, and remove the link and the `hygien
 
 ## 8. Support
 
-Email coregent.devspace+support@gmail.com: include your Jira site URL and, if relevant, the time of the sweep or the item keys.
+Email support@coregent.com.au: include your Jira site URL and, if relevant, the time of the sweep or the item keys.
