@@ -55,7 +55,7 @@ Select **Run sweep now**. The sweep runs in the background, so you can leave the
 
 **Later sweeps are much faster.** They only re-check items that changed since the last sweep. A typical week takes minutes.
 
-**During the free trial**, a sweep covers your **500 most recently active open items**. The page shows **Trial sweep: a sample of your backlog**. After purchase, the next sweep covers the whole backlog.
+**During the free trial**, a sweep covers your **500 most recently active open items**. The page shows **Trial sweep: a sample of your backlog**. After purchase, sweeps cover the whole backlog. On large backlogs this takes more than one sweep, because each sweep judges a limited number of candidates and each site has a monthly AI usage limit (shown on the page). Later sweeps pick up where earlier ones stopped.
 
 **If a sweep stops** (for example after a platform interruption), the page shows a warning with a **Resume sweep** button. Resuming continues where it stopped and keeps the work already done. A sweep with no progress for 20 minutes counts as stopped. The daily check also resumes stopped sweeps automatically, up to three times.
 
@@ -113,7 +113,7 @@ With **Run the sweep automatically every week** on, the app checks once a day an
 No. The app uses AI through Atlassian's Forge platform, and the vendor pays for that usage.
 
 **Where does our data go?**
-Nowhere outside Atlassian. The app runs entirely on Atlassian Forge ("Runs on Atlassian") and has no servers of its own. See the [privacy policy](privacy) for what it reads and stores, and for how long.
+To Atlassian's platform only: the app runs on Atlassian Forge ("Runs on Atlassian"), has no servers of its own, and sends none of your work item content to us. Its AI analysis uses Atlassian's Forge LLMs service, which Atlassian runs on Amazon Bedrock. See the [privacy policy](privacy) for what it reads and stores, where, and for how long.
 
 **Can it change items without asking?**
 No. Every change needs a Jira administrator to select **Approve**.
