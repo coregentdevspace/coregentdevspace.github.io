@@ -12,5 +12,6 @@ Finds duplicate, obsolete and stale work items in your Jira backlog and suggests
 
 - [Getting started](backlog-hygiene/docs)
 - [Privacy policy](backlog-hygiene/privacy)
+- [Data Processing Addendum](backlog-hygiene/dpa)
 - [Security](backlog-hygiene/security)
 - Support: [support@coregent.com.au](mailto:support@coregent.com.au)

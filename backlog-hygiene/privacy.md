@@ -5,19 +5,20 @@ permalink: /backlog-hygiene/privacy
 
 # Privacy Policy: Backlog Hygiene for Jira
 
-**Effective date:** 6 November 2026  
-**Vendor:** Coregent Digital Studio, Unit 23, 5 Hely Street, Griffith ACT 2603, Australia ("we", "us")  
+**Effective date:** 26 November 2026  
+**Vendor:** MD DELOWAR H MUNNA (sole trader) trading as Coregent Digital Studio, ABN 43 843 909 626, Unit 23, 5 Hely Street, Griffith ACT 2603, Australia ("we", "us")  
 **Contact:** privacy@coregent.com.au
 
 ## 1. What this policy covers
 
-This policy explains how the Atlassian Marketplace app **Backlog Hygiene for Jira** (the "App") handles data when it is installed on an Atlassian Jira Cloud site. It does not cover Atlassian's own products or services, which are governed by Atlassian's privacy policy, or the Atlassian Marketplace website.
+This policy explains how the Atlassian Marketplace app **Backlog Hygiene for Jira** (the "App") handles data when it is installed on an Atlassian Jira Cloud site, and how we handle the limited information that reaches us (logs, support messages, licence and billing information). **We, not Atlassian, are responsible for the App's processing of your data.** Atlassian's own products and the Atlassian Marketplace website are covered by Atlassian's privacy policy.
 
 ## 2. Summary
 
-- The App runs entirely on **Atlassian Forge** and is eligible for **Runs on Atlassian**. It has no servers of its own, does not send data outside Atlassian's platform, and uses no third-party services.
-- **We (the vendor) have no access to your Jira data.** The App's data lives in Forge app storage on your Atlassian site's installation, and only the App itself can read it.
-- The App uses an AI model through **Atlassian's Forge LLMs** service to judge whether work items are duplicates, obsolete or stale. That processing happens on Atlassian's platform.
+- The App runs on **Atlassian's Forge platform**. We operate no servers for it, and the App sends no data to servers we operate or to any service we contract.
+- **We cannot access the data the App stores.** It lives in Forge app storage for your site's installation, hosted by Atlassian.
+- To analyse work items, the App uses **Atlassian's Forge LLMs service**, which Atlassian runs on Amazon Bedrock (Amazon Web Services) as Atlassian's sub-processor (section 5).
+- We do receive some information directly: operational logs, if your site shares them (section 8); support and privacy messages you send us; and licence and billing information from Atlassian (section 9).
 - **Nothing in Jira changes without approval.** The App writes to Jira only after a Jira administrator approves a suggestion.
 
 ## 3. Data the App reads
@@ -27,32 +28,52 @@ In the Jira projects that a Jira administrator selects in the App's settings, th
 - for open work items, and for done work items updated in the last 12 months: the key, project, issue type, summary, description, status, created, updated and resolved dates, labels, and links to other work items;
 - the last three comments of each work item;
 - the project's workflow statuses and the site's resolutions, to offer close settings;
-- the list of projects the App can access, to offer project selection.
+- the list of projects the App can access, to offer project selection;
+- the site's approximate number of users, to set the App's AI usage limit for your price band (a single number, not personal data).
 
-The App also checks whether the person using its page is a Jira administrator, using Jira's permission check for that person.
+The App also checks whether the person using its page is a Jira administrator, and which projects they can browse, using Jira's permission checks for that person.
 
 The App does not read user profiles, email addresses, attachments, or work items in projects that are not selected.
 
-## 4. Data the App stores, and for how long
+## 4. Data the App stores, where, and for how long
 
-The App stores data in **Forge app storage**, which Atlassian hosts as part of the App's installation on your site:
+The App stores data in **Forge app storage**, which Atlassian hosts as part of the App's installation on your site.
+
+**Where it is stored:** Forge app storage supports Atlassian data residency. If your site uses data residency, the App's stored data is kept in your pinned region. Otherwise the data is in Atlassian's "Global" location: Atlassian assigns it to, and may move it between, its hosting regions, which are listed on Atlassian's data residency page (https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/).
 
 | Data | Purpose | Retention |
 |---|---|---|
 | A snapshot of the work items read in a sweep (description shortened to 2,400 characters, each comment to 400) | To find and judge candidates during that sweep | The **4 most recent sweeps**; older sweeps are deleted automatically when a new sweep starts |
 | Suggestions produced by a sweep (item keys, reason, confidence) | The review queue | The 4 most recent sweeps |
-| A short AI-generated summary of each work item, cached until the item changes | To find duplicates worded differently, without re-processing unchanged items | Until the App is uninstalled |
-| Cached judgements for pairs or items whose content hasn't changed | To keep weekly sweeps fast and low-cost | Until the App is uninstalled |
-| Approve/reject decisions, with the Atlassian account ID of the administrator who made them and the time | To apply approved changes, hide rejected suggestions, and show who decided | Until the App is uninstalled |
-| Settings (projects, thresholds, run day, close settings) | To run as configured | Until the App is uninstalled |
+| A short AI-generated summary of each work item, cached until the item changes | To find duplicates worded differently without re-processing unchanged items | Until an administrator deletes App data, or the App is uninstalled |
+| Cached judgements for pairs or items whose content hasn't changed | To keep weekly sweeps fast and low-cost | Until an administrator deletes App data, or the App is uninstalled |
+| Approve/reject decisions, with the Atlassian account ID of the administrator who made them and the time | To apply approved changes, hide rejected suggestions, and show who decided | Until an administrator deletes App data, or the App is uninstalled |
+| Settings (projects, thresholds, run day, close settings) | To run as configured | Until an administrator deletes App data, or the App is uninstalled |
+| The site's approximate user count (one number) | To apply the AI usage limit for your price band | Refreshed at each sweep; deleted with App data, then read again at the next sweep |
+| AI usage counters (number of AI requests, tokens and cost per month, and during a trial; no work item content and no personal data) | To enforce the App's AI usage limits | Kept after "Delete app data" so the limits keep working; deleted with the rest of the storage after uninstall |
+| A record that App data was deleted (time and number of records) | To show the deletion status and keep usage limits working | As for the usage counters |
 
-When the App is uninstalled, Atlassian deletes its Forge app storage according to Atlassian's platform data-retention policy. Under Atlassian's current documentation, Forge-hosted storage is kept for 28 days after uninstallation, so it can be restored if the App is reinstalled, and is then deleted ([Data lifecycle for Forge-hosted storage](https://developer.atlassian.com/platform/forge/storage-reference/hosted-storage-data-lifecycle/)).
+**Deleting App data.** A Jira administrator can delete the App's stored data at any time from the App's page (**Delete app data**, confirmed by typing DELETE):
+
+- The App stops any running sweep and deletes the stored data in the background.
+- It runs a second check about 15 minutes later, to remove anything written by a step that was already running.
+- Sweeps, approvals and settings changes are paused until it finishes, normally within about 20 minutes.
+- Only the usage counters and the deletion record above are kept.
+
+It does not remove:
+- changes the App already made in Jira with an administrator's approval (links, comments, labels, status changes), which are part of your Jira data and can be edited or removed in Jira;
+- operational logs held by Atlassian (section 8);
+- data already processed by Atlassian's Forge LLMs service (section 5).
+
+**Uninstalling.** When the App is uninstalled, Atlassian keeps its Forge app storage for 28 days, so it can be restored if the App is reinstalled (on request within 21 days), and then deletes it, together with backups on Atlassian's schedule ([Atlassian's storage documentation](https://developer.atlassian.com/platform/forge/storage-reference/hosted-storage-data-lifecycle/)).
 
 ## 5. AI processing
 
-To judge candidates, the App sends work item text (summary, description, recent comments, and the AI summaries above) to an AI model, **Claude Haiku 4.5**, through **Atlassian's Forge LLMs** service. Forge LLMs is part of Atlassian's platform: the request does not go to any server operated by us, and we have no separate contract with an AI vendor for this App.
+To judge candidates, the App sends work item text (summary, description, recent comments, and the cached AI summaries above) to an AI model from Anthropic's Claude family (currently **Claude Haiku 4.5**), through **Atlassian's Forge LLMs** service. We may move to another Claude model offered through Forge LLMs, for example when Atlassian retires a model; the data sent, the processing path and the protections described in this section stay the same, and this page will name the model in use. Atlassian provides this service using **Amazon Bedrock**, operated by Amazon Web Services as Atlassian's sub-processor. The request does not go to any server we operate, and we have no separate contract with an AI vendor for this App.
 
-The AI's output is a suggestion with a reason and a confidence score. It is never applied automatically: a Jira administrator must approve each change. How Atlassian handles and retains these requests is governed by your agreement with Atlassian and [Atlassian's privacy policy](https://www.atlassian.com/legal/privacy-policy).
+- **Location:** Atlassian decides where Forge LLMs processing takes place. It is not covered by data residency, so it may happen outside your site's data residency region.
+- **Retention and training:** we do not use your data to train or improve AI models. Atlassian's handling of Forge LLMs requests is governed by Atlassian's terms and policies.
+- **Output:** the AI's output is a suggestion with a reason and a confidence score. It is never applied automatically; a Jira administrator must approve each change.
 
 ## 6. Changes the App makes in Jira
 
@@ -63,49 +84,66 @@ Only after a Jira administrator approves a suggestion, the App, acting as the Ap
 - add a label (`hygiene-duplicate`, `hygiene-obsolete` or `hygiene-stale`) when the workflow cannot set a resolution;
 - move the work item to a Done status, with the configured resolution where the workflow allows it.
 
-## 7. Personal data
+## 7. Personal data and our role
 
-The App processes personal data only to the extent that it appears in:
+The App processes personal data only to the extent that it appears in **work item text** written by your users (for example a name in a description or comment), and in the **Atlassian account IDs** of administrators who approve or reject suggestions.
 
-- **work item text** written by your users (for example a name mentioned in a description or comment), processed as described in sections 3–5;
-- **Atlassian account IDs** of administrators who approve or reject suggestions, stored with the decision.
+| Activity | Your role | Our role |
+|---|---|---|
+| The App reading, storing and analysing your Jira work items (sections 3–6) | Controller | Processor, acting on your configuration and approvals, with Atlassian as our sub-processor |
+| Operational logs we view (section 8) | — | Controller, for troubleshooting and improving the App |
+| Support, privacy and security messages you send us | — | Controller |
+| Licence and billing information Atlassian shares with us (section 9) | — | Controller (Atlassian is a separate controller for billing) |
 
-The App does not collect names, email addresses, or other profile data, and does not use data for advertising, profiling, or training AI models.
+The App does not collect names, email addresses or other profile data, and we do not use any data for advertising, profiling, or training AI models. Where you need a data processing addendum, see our [Data Processing Addendum](/backlog-hygiene/dpa).
 
-For the purposes of data protection law, you (the Atlassian customer) are the controller of the data in your Jira site. We do not access or receive the data the App processes: it stays on Atlassian's platform, which processes it under your agreement with Atlassian.
+**Sensitive information.** Please don't select projects whose work items contain sensitive information, such as health information, financial account numbers or government identifiers. Your agreement for the App also excludes such data. The App can't detect it in free text, so it would be processed like any other work item text.
 
 ## 8. Logs
 
-The Forge platform records operational logs for the App, such as sweep ids, counts, timings, errors, and the licence mode at the start of a sweep. The App does not deliberately log work item text. Atlassian may make these logs available to us for troubleshooting under Atlassian's terms. Log sharing is on by default for new installations, and a site administrator can turn it off in Atlassian Administration. We use shared logs only to troubleshoot the App.
+The Forge platform records operational logs for the App. The App logs:
+- sweep and deletion identifiers, counts, timings and errors;
+- the licence mode and the site's approximate user count;
+- work item keys in some error messages.
 
-## 9. Sharing
+It does not deliberately log work item text, names or account IDs. Error messages from Jira or the AI service are logged shortened, and could in rare cases contain fragments of those responses.
 
-We do not sell or share your data. The App's data is processed only by Atlassian's platform, as described above. We have no sub-processors for this App other than Atlassian.
+Atlassian shares these logs with us by default, and a site administrator can turn log sharing off. We can see shared logs for 30 days, and use them only to troubleshoot and improve the App. Atlassian stores the logs under its own retention policy; they are not covered by data residency.
+
+## 9. Information we receive directly, and sharing
+
+- **Support and privacy messages** you send to support@, privacy@ or security@coregent.com.au: we use them to respond, and keep them for 24 months after the matter is closed unless the law requires longer. These messages are held in Google Workspace (Google LLC), our email provider.
+- **Licence and billing information** that Atlassian shares with Marketplace vendors (for example your organisation, site and licence details, and technical or billing contacts): we use it to manage licences, keep business and tax records, and contact you about the App where you've asked us to or the law requires.
+
+We do not sell your data. We share it only with Atlassian, which hosts and runs the App (including Amazon Web Services as Atlassian's sub-processor for Forge LLMs), and where the law requires. Atlassian's sub-processors are listed at https://www.atlassian.com/legal/sub-processors.
 
 ## 10. Security
 
-The App relies on Atlassian Forge's security model. Its code runs in Atlassian's sandboxed runtime, and its access is limited to the declared scopes:
+The App relies on Atlassian Forge's security model. Its code runs in Atlassian's sandboxed runtime, declares no outbound network access, and its access is limited to the declared scopes:
 - `read:jira-work`
 - `write:jira-work`
 - `storage:app`
+- `read:license:jira` (only the site's approximate number of users, used to set the App's usage limit)
 
-Actions that change Jira, run sweeps, or change settings require Jira administrator permission, checked on every request.
+Actions that change Jira, run sweeps, change settings or delete App data require Jira administrator permission, checked on every request.
 
 ## 11. Your choices
 
 - A Jira administrator can choose which projects the App sweeps, stop weekly sweeps, reject any suggestion, and uninstall the App at any time.
-- To ask about this policy or request deletion of App data before uninstalling, contact privacy@coregent.com.au.
+- A Jira administrator can delete the App's stored data at any time (section 4).
+- A site administrator can turn off log sharing in Atlassian Administration.
+- To ask about this policy, access or correction of information we hold, or deletion, contact privacy@coregent.com.au.
 
-## 12. Australian privacy law
+## 12. Australian privacy law and international transfers
 
-We are based in Australia. We handle any personal information we receive (for example, in a support or privacy email) in line with the Australian Privacy Principles in the *Privacy Act 1988* (Cth). If you are not satisfied with our response to a privacy concern, you can contact the Office of the Australian Information Commissioner at [oaic.gov.au](https://www.oaic.gov.au). This policy is governed by the laws of the Australian Capital Territory, Australia.
+We are based in Australia. Whether or not the Australian Privacy Principles in the *Privacy Act 1988* (Cth) apply to us as a small business, we choose to handle personal information in line with them. Information we receive directly (section 9) and logs (section 8) are accessed by us in Australia. Where data protection law requires a transfer mechanism for personal data from the EEA, UK or Switzerland, we use the European Commission's Standard Contractual Clauses, with the UK International Data Transfer Addendum and Swiss adaptations, as set out in our data processing addendum; Atlassian's processing is covered by Atlassian's own data processing terms. If you are not satisfied with our response to a privacy concern, you may be able to contact the Office of the Australian Information Commissioner at [oaic.gov.au](https://www.oaic.gov.au), or your local data protection authority. This policy is governed by the laws of the Australian Capital Territory, Australia.
 
 ## 13. Changes to this policy
 
-We will update this policy when the App's data handling changes, and post the new version at this URL with a new effective date. Material changes are also noted in the Marketplace listing's release notes.
+We will update this policy when the App's data handling changes, post the new version at this URL with a new effective date, note material changes in the Marketplace listing's release notes, and tell Atlassian as the Marketplace Partner Agreement requires.
 
 ## 14. Contact
 
-Coregent Digital Studio  
+MD DELOWAR H MUNNA (sole trader) trading as Coregent Digital Studio  
 Unit 23, 5 Hely Street, Griffith ACT 2603, Australia  
 privacy@coregent.com.au
